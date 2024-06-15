@@ -76,8 +76,11 @@ const Dashboard = () => {
   const bg = useColorModeValue("gray.50", "gray.800");
   const cardBg = useColorModeValue("white", "gray.700");
 
-  const timestamps =
-    infoGraphSatsticalData && infoGraphSatsticalData[12].timestamp[0];
+   let timestamps;
+  if (infoGraphSatsticalData) {
+    const length = infoGraphSatsticalData.length;
+    timestamps = infoGraphSatsticalData[length - 1].timestamp[0];
+  }
   return (
     <Box bg={bg} minH="20" p={4}>
       <Flex justifyContent="space-between" alignItems="center" mb={4}>
